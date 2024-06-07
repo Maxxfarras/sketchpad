@@ -1,13 +1,29 @@
-const container = document.querySelector('#container')
+const container = document.querySelector('#container');
 
-let input = prompt('how many rows?');
-let rowNum = input * input
+function chooseSize() {
+    let sideLength = prompt('Choose your side length, no more than 100');
+    if ((sideLength > 100) || (sideLength <= 0)) {
+        alert('Invalid Value, try again');
+        chooseSize();
+    } else {
+        makeGrid(sideLength)
+    };
+}
 
-function makeRows (rowNum) {
-    for (i = 0; i < rowNum; i++){
-        let rows = document.createElement('div');
-        container.appendChild(rows);
+function makeGrid(sideLength) {
+    let totalSquares = sideLength * sideLength;
+    let side = 960/sideLength;
+    for (i = 1; i <= totalSquares; i++) {
+        let div = document.createElement('div');
+        div.style.cssText = `
+        width: ${side}px;
+        height: ${side}px;
+        border: 1px solid black;
+        box-sizing: border-box;
+        `;
+        container.appendChild(div);   
     };
 };
 
-makeRows(rowNum);
+
+chooseSize();
