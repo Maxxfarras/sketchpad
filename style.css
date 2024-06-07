@@ -1,15 +1,13 @@
-
 #container {
-display: flex;
-flex-wrap: wrap;
-height: 960px;
-width: 960px;
+display: grid;
+grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+width: 560px;
+height: 560px;
 border: 3px solid black;
 }
 
 #container > div {
-width: 20px;
-height: 20px;
-margin-top: 0;
+width: 30px;
+height: 30px;
 border: 1px solid gray;
 }
