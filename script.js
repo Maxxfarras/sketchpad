@@ -10,16 +10,14 @@ function chooseSize() {
     };
 }
 
-let buttonResize = document.querySelector('#resize');
-buttonResize.addEventListener('click', () => {
-    chooseSize();
-});
+
 
 function makeGrid(sideLength) {
     let totalSquares = sideLength * sideLength;
     let side = 960/sideLength;
     for (i = 1; i <= totalSquares; i++) {
         let div = document.createElement('div');
+        div.classList.toggle('gridUnit');
         div.style.cssText = `
         width: ${side}px;
         height: ${side}px;
@@ -29,3 +27,23 @@ function makeGrid(sideLength) {
         container.appendChild(div);   
     };
 };
+
+function deleteGrid(sideLength) {
+    let totalSquares = sideLength * sideLength;
+    for (i = 1; i <= totalSquares; i--) {
+        container.remove('div')
+    };
+};
+
+function clearGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+};
+
+let buttonResize = document.querySelector('#resize');
+buttonResize.addEventListener('click', () => {
+    clearGrid();
+    chooseSize();
+});
+chooseSize();
