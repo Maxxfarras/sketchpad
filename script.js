@@ -10,6 +10,11 @@ function chooseSize() {
     };
 }
 
+let buttonResize = document.querySelector('#resize');
+buttonResize.addEventListener('click', () => {
+    chooseSize();
+});
+
 function makeGrid(sideLength) {
     let totalSquares = sideLength * sideLength;
     let side = 960/sideLength;
@@ -24,6 +29,3 @@ function makeGrid(sideLength) {
         container.appendChild(div);   
     };
 };
-
-
-chooseSize();
