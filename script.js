@@ -15,6 +15,7 @@ function makeGrid(sideLength) {
     let side = 960/sideLength;
     for (i = 1; i <= totalSquares; i++) {
         let div = document.createElement('div');
+        div.classList.toggle('grid-item');
         div.style.cssText = `
         width: ${side}px;
         height: ${side}px;
@@ -37,4 +38,23 @@ buttonResize.addEventListener('click', () => {
     chooseSize();
 });
 
+let buttonClear = document.querySelector('#clear');
+buttonClear.addEventListener('click', () =>{
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(Item => {
+        item.style.backgroundColor = 'white';
+    })
+})
+
+
+function paintBlue() {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.addEventListener('click', () =>{
+            item.style.backgroundColor = 'blue';
+        });
+    });
+};
+
 chooseSize();
+paintBlue();
