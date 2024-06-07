@@ -1,6 +1,7 @@
 const container = document.querySelector('#container')
 
-let rowNum = prompt('how many rows?');
+let input = prompt('how many rows?');
+let rowNum = input * (input - 1);
 
 function makeRows (rowNum) {
     for (i = 0; i < rowNum; i++){
