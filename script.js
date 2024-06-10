@@ -41,11 +41,10 @@ buttonResize.addEventListener('click', () => {
 let buttonClear = document.querySelector('#clear');
 buttonClear.addEventListener('click', () =>{
     let gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(Item => {
+    gridItems.forEach(item => {
         item.style.backgroundColor = 'white';
-    })
-})
-
+    });
+});
 
 function paintBlue() {
     let gridItems = document.querySelectorAll('.grid-item');
