@@ -55,5 +55,8 @@ function paintBlue() {
     });
 };
 
+function masterControl() {
+    
+}
 chooseSize();
 paintBlue();
