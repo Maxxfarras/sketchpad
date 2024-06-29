@@ -61,7 +61,8 @@ function pixel() {
 };
 
 //pixel button
-buttonPixel.addEventListener('click', pixel);
+buttonPixel.addEventListener('click', pixel)
+buttonPixel.addEventListener('mousedown', pixel)
 
 
 
