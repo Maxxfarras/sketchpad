@@ -62,8 +62,7 @@ function pixel() {
 
 //pixel button
 buttonPixel.addEventListener('click', pixel)
+//check this function
 buttonPixel.addEventListener('mousedown', pixel)
-
-
 
 chooseSize();
