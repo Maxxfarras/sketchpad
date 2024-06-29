@@ -50,7 +50,7 @@ buttonClear.addEventListener('click', () =>{
     });
 });
 
-//color function
+//pixel function
 function pixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
@@ -60,11 +60,9 @@ function pixel() {
     });
 };
 
-//button blue
-buttonPixel.addEventListener('click', () => {
-    pixel();
-});
+//pixel button
+buttonPixel.addEventListener('click', pixel);
+
 
 
 chooseSize();
-//paintBlue();
