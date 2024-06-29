@@ -65,8 +65,6 @@ buttonBlue.addEventListener('click', () => {
     paintBlue();
 });
 
-function masterControl() {
-    
-}
+
 chooseSize();
 //paintBlue();
