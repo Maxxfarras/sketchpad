@@ -1,6 +1,7 @@
 const container = document.querySelector('#container');
 let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
+let buttonBlue = document.querySelector('#blue');
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -59,8 +60,13 @@ function paintBlue() {
     });
 };
 
+//button blue
+buttonBlue.addEventListener('click', () => {
+    paintBlue();
+});
+
 function masterControl() {
     
 }
 chooseSize();
-paintBlue();
+//paintBlue();
