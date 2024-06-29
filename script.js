@@ -1,4 +1,6 @@
 const container = document.querySelector('#container');
+let buttonResize = document.querySelector('#resize');
+let buttonClear = document.querySelector('#clear');
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -26,19 +28,20 @@ function makeGrid(sideLength) {
     };
 };
 
+//delete divs function
 function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     };
 };
 
-let buttonResize = document.querySelector('#resize');
+//resize button
 buttonResize.addEventListener('click', () => {
     clearGrid();
     chooseSize();
 });
 
-let buttonClear = document.querySelector('#clear');
+//clear button
 buttonClear.addEventListener('click', () =>{
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
@@ -46,6 +49,7 @@ buttonClear.addEventListener('click', () =>{
     });
 });
 
+//color function
 function paintBlue() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
