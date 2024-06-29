@@ -1,7 +1,7 @@
 const container = document.querySelector('#container');
 let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
-let buttonBlue = document.querySelector('#blue');
+let buttonPixel = document.querySelector('#pixel');
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -51,18 +51,18 @@ buttonClear.addEventListener('click', () =>{
 });
 
 //color function
-function paintBlue() {
+function pixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.addEventListener('click', () =>{
-            item.style.backgroundColor = 'blue';
+            item.style.backgroundColor = 'black';
         });
     });
 };
 
 //button blue
-buttonBlue.addEventListener('click', () => {
-    paintBlue();
+buttonPixel.addEventListener('click', () => {
+    pixel();
 });
 
 
