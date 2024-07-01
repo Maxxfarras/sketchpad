@@ -51,7 +51,6 @@ buttonClear.addEventListener('click', () =>{
     });
 });
 
-//pixel function
 function pixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
@@ -65,5 +64,19 @@ function pixel() {
 buttonPixel.addEventListener('click', pixel)
 //check this function
 buttonPixel.addEventListener('mousedown', pixel)
+
+function sketchpad() {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.backgroundColor = 'black';
+        });
+    })
+}
+
+//sketchpad button
+buttonSketchpad.addEventListener('click', () => {
+    sketchpad();
+});
 
 chooseSize();
