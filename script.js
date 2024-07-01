@@ -30,9 +30,9 @@ function makeGrid(sideLength) {
     };
 };
 
-//delete divs function
+//delete cells function
 function clearGrid() {
-    while (container.firstChild) {
+    while(container.firstChild) {
         container.removeChild(container.firstChild);
     };
 };
@@ -54,7 +54,7 @@ buttonClear.addEventListener('click', () =>{
 function pixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.addEventListener('click', () =>{
+        item.addEventListener('click', () => {
             item.style.backgroundColor = 'black';
         });
     });
@@ -62,8 +62,9 @@ function pixel() {
 
 //pixel button
 buttonPixel.addEventListener('click', pixel)
-//check this function
+/*
 buttonPixel.addEventListener('mousedown', pixel)
+*/
 
 function sketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
