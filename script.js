@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
+let buttonSketchpad = document.querySelector('#sketchpad');
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
