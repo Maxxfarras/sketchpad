@@ -3,6 +3,7 @@ let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
+let mouseDown = false;
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -16,7 +17,7 @@ function chooseSize() {
 
 function makeGrid(sideLength) {
     let totalSquares = sideLength * sideLength;
-    let side = 960/sideLength;
+    let side = 760/sideLength;
     for (i = 1; i <= totalSquares; i++) {
         let div = document.createElement('div');
         div.classList.toggle('grid-item');
@@ -54,17 +55,30 @@ buttonClear.addEventListener('click', () =>{
 function pixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('mousedown', () => {
+            mouseDown = true;
             item.style.backgroundColor = 'black';
+        });
+        item.addEventListener('mousemove', () => {
+            if(mouseDown) {
+                item.style.backgroundColor = 'black';
+            };
+        });
+        item.addEventListener('mouseup', () => {
+            mouseDown = true;
         });
     });
 };
 
+document.addEventListener('mouseup', () => {
+    mouseDown = false;
+});
+
 //pixel button
-buttonPixel.addEventListener('click', pixel)
-/*
-buttonPixel.addEventListener('mousedown', pixel)
-*/
+buttonPixel.addEventListener('click', () => {
+    pixel();
+})
+
 
 function sketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
