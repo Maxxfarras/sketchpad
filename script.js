@@ -11,9 +11,9 @@ function chooseSize() {
         alert('Invalid Value, try again');
         chooseSize();
     } else {
-        makeGrid(sideLength)
+        makeGrid(sideLength);
     };
-}
+};
 
 function makeGrid(sideLength) {
     let totalSquares = sideLength * sideLength;
@@ -62,7 +62,6 @@ function sketchpad() {
     });
 };
 
-//delete cells function
 function clearGrid() {
     while(container.firstChild) {
         container.removeChild(container.firstChild);
@@ -86,7 +85,7 @@ buttonClear.addEventListener('click', () =>{
 //pixel button
 buttonPixel.addEventListener('click', () => {
     pixel();
-})
+});
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
