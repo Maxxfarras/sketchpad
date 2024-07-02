@@ -31,27 +31,6 @@ function makeGrid(sideLength) {
     };
 };
 
-//delete cells function
-function clearGrid() {
-    while(container.firstChild) {
-        container.removeChild(container.firstChild);
-    };
-};
-
-//resize button
-buttonResize.addEventListener('click', () => {
-    clearGrid();
-    chooseSize();
-});
-
-//clear button
-buttonClear.addEventListener('click', () =>{
-    let gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-        item.style.backgroundColor = 'white';
-    });
-});
-
 function pixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
@@ -74,24 +53,44 @@ document.addEventListener('mouseup', () => {
     mouseDown = false;
 });
 
-//pixel button
-buttonPixel.addEventListener('click', () => {
-    pixel();
-})
-
-
 function sketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             item.style.backgroundColor = 'black';
         });
-    })
-}
+    });
+};
+
+//delete cells function
+function clearGrid() {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+};
+
+//resize button
+buttonResize.addEventListener('click', () => {
+    clearGrid();
+    chooseSize();
+});
+
+//clear button
+buttonClear.addEventListener('click', () =>{
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.style.backgroundColor = 'white';
+    });
+});
+
+//pixel button
+buttonPixel.addEventListener('click', () => {
+    pixel();
+})
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
     sketchpad();
 });
 
-chooseSize();
+makeGrid(16);
