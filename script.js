@@ -4,6 +4,7 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let mouseDown = false;
+let strokeSelection;
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -60,6 +61,7 @@ function sketchpad() {
             item.style.backgroundColor = 'black';
         });
     });
+    return;
 };
 
 function clearGrid() {
@@ -84,12 +86,22 @@ buttonClear.addEventListener('click', () =>{
 
 //pixel button
 buttonPixel.addEventListener('click', () => {
-    pixel();
+    strokeSelection = 'pixel';
 });
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
-    sketchpad();
+    strokeSelection = 'sketchpad';
 });
+
+[buttonSketchpad, buttonPixel].forEach(button => {
+    button.addEventListener('click', () => {
+        if(strokeSelection === 'pixel') {
+            pixel();
+        } else if (strokeSelection === 'sketchpad') {
+            sketchpad();
+        }
+    })
+})
 
 makeGrid(16);
