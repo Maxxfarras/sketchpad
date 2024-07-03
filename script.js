@@ -61,7 +61,6 @@ function sketchpad() {
             item.style.backgroundColor = 'black';
         });
     });
-    return;
 };
 
 function clearGrid() {
@@ -97,11 +96,20 @@ buttonSketchpad.addEventListener('click', () => {
 [buttonSketchpad, buttonPixel].forEach(button => {
     button.addEventListener('click', () => {
         if(strokeSelection === 'pixel') {
+            removeListeners();
             pixel();
         } else if (strokeSelection === 'sketchpad') {
-            sketchpad();
-        }
+            removeListeners();
+            sketchpad()
+        };
+    });
+});
+
+function removeListeners () {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.removeEventListener('click')
     })
-})
+}
 
 makeGrid(16);
