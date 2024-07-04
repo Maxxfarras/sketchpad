@@ -4,7 +4,6 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let mouseDown = false;
-let strokeSelection;
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -37,11 +36,11 @@ function pixel() {
     gridItems.forEach(item => {
         item.addEventListener('mousedown', () => {
             mouseDown = true;
-            item.style.backgroundColor = 'black';
+            item.style.backgroundColor = 'blue';
         });
         item.addEventListener('mousemove', () => {
             if(mouseDown) {
-                item.style.backgroundColor = 'black';
+                item.style.backgroundColor = 'blue';
             };
         });
         item.addEventListener('mouseup', () => {
@@ -50,15 +49,41 @@ function pixel() {
     });
 };
 
+function pixelStart(event) {
+    mouseDown = true;
+    event.target.style.backgroundColor = 'blue';
+};
+
+function pixelMove(event) {
+    if(mouseDown) {
+        event.target.style.backgroundColor = 'blue';
+    };
+};
+
+function pixelEnd(event) {
+    mouseDown = false;
+};
+
+function addListenerPixel() {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.addEventListener('mousedown', pixelStart);
+        item.addEventListener('mousemove', pixelMove);
+        item.addEventListener('mouseup', pixelEnd);
+    });
+    document.addEventListener('mouseup', pixelEnd);
+};
+
+/*
 document.addEventListener('mouseup', () => {
     mouseDown = false;
 });
-
+*/
 function sketchpad(event) {
     event.target.style.backgroundColor = 'black'
 };
 
-function addEventListenerSketchpad() {
+function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.addEventListener('mouseenter', sketchpad);
@@ -87,36 +112,31 @@ buttonClear.addEventListener('click', () =>{
 
 //pixel button
 buttonPixel.addEventListener('click', () => {
-    removeListenersSketchpad()
-    pixel();
+    removeListenerSketchpad();
+    addListenerPixel();
 });
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
-    addEventListenerSketchpad();
+    removeListenerPixel()
+    addListenerSketchpad();
 });
 
-function removeListenersPixel() {
+function removeListenerPixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.removeEventListener('mouseenter', pixel)
+        item.removeEventListener('mousedown', pixelStart);
+        item.removeEventListener('mousemove', pixelMove);
+        item.removeEventListener('mouseup', pixelEnd);
     });
+    document.removeEventListener('mouseup', pixelEnd);
 };
 
-function removeListenersSketchpad() {
+function removeListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.removeEventListener('mouseenter', sketchpad)
+        item.removeEventListener('mouseenter', sketchpad);
     });
 };
 
 makeGrid(16);
-
-
-/*
-strokeMode pseudocode
-
-1.Select the stroke mode (pixel or sketchpad)
-2.Add event listeners to each item
-
-*/
