@@ -61,9 +61,9 @@ function sketchpad(event) {
 function addEventListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.addEventListener('mouseenter', sketchpad)
-    })
-}
+        item.addEventListener('mouseenter', sketchpad);
+    });
+};
 
 function clearGrid() {
     while(container.firstChild) {
@@ -88,6 +88,7 @@ buttonClear.addEventListener('click', () =>{
 //pixel button
 buttonPixel.addEventListener('click', () => {
     removeListenersSketchpad()
+    pixel();
 });
 
 //sketchpad button
@@ -106,9 +107,8 @@ function removeListenersSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.removeEventListener('mouseenter', sketchpad)
-    })
-    console.log('hi')
-}
+    });
+};
 
 makeGrid(16);
 
