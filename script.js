@@ -18,7 +18,7 @@ function chooseSize() {
 function makeGrid(sideLength) {
     let totalSquares = sideLength * sideLength;
     let side = 760/sideLength;
-    for (i = 1; i <= totalSquares; i++) {
+    for(i = 1; i <= totalSquares; i++) {
         let div = document.createElement('div');
         div.classList.toggle('grid-item');
         div.style.cssText = `
@@ -29,24 +29,6 @@ function makeGrid(sideLength) {
         `;
         container.appendChild(div);   
     };
-};
-
-function pixel() {
-    let gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-        item.addEventListener('mousedown', () => {
-            mouseDown = true;
-            item.style.backgroundColor = 'blue';
-        });
-        item.addEventListener('mousemove', () => {
-            if(mouseDown) {
-                item.style.backgroundColor = 'blue';
-            };
-        });
-        item.addEventListener('mouseup', () => {
-            mouseDown = true;
-        });
-    });
 };
 
 function pixelStart(event) {
@@ -60,7 +42,7 @@ function pixelMove(event) {
     };
 };
 
-function pixelEnd(event) {
+function pixelEnd() {
     mouseDown = false;
 };
 
@@ -74,19 +56,31 @@ function addListenerPixel() {
     document.addEventListener('mouseup', pixelEnd);
 };
 
-/*
-document.addEventListener('mouseup', () => {
-    mouseDown = false;
-});
-*/
+function removeListenerPixel() {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.removeEventListener('mousedown', pixelStart);
+        item.removeEventListener('mousemove', pixelMove);
+        item.removeEventListener('mouseup', pixelEnd);
+    });
+    document.removeEventListener('mouseup', pixelEnd);
+};
+
 function sketchpad(event) {
-    event.target.style.backgroundColor = 'black'
+    event.target.style.backgroundColor = 'black';
 };
 
 function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.addEventListener('mouseenter', sketchpad);
+    });
+};
+
+function removeListenerSketchpad() {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.removeEventListener('mouseenter', sketchpad);
     });
 };
 
@@ -118,25 +112,8 @@ buttonPixel.addEventListener('click', () => {
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
-    removeListenerPixel()
+    removeListenerPixel();
     addListenerSketchpad();
 });
-
-function removeListenerPixel() {
-    let gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-        item.removeEventListener('mousedown', pixelStart);
-        item.removeEventListener('mousemove', pixelMove);
-        item.removeEventListener('mouseup', pixelEnd);
-    });
-    document.removeEventListener('mouseup', pixelEnd);
-};
-
-function removeListenerSketchpad() {
-    let gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-        item.removeEventListener('mouseenter', sketchpad);
-    });
-};
 
 makeGrid(16);
