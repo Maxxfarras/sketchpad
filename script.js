@@ -54,14 +54,16 @@ document.addEventListener('mouseup', () => {
     mouseDown = false;
 });
 
-function sketchpad() {
+function sketchpad(event) {
+    event.target.style.backgroundColor = 'black'
+};
+
+function addEventListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.style.backgroundColor = 'black';
-        });
-    });
-};
+        item.addEventListener('mouseenter', sketchpad)
+    })
+}
 
 function clearGrid() {
     while(container.firstChild) {
@@ -86,25 +88,13 @@ buttonClear.addEventListener('click', () =>{
 //pixel button
 buttonPixel.addEventListener('click', () => {
     removeListenersSketchpad()
-    pixel();
 });
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
-    removeListenersPixel();
-    sketchpad();
+    addEventListenerSketchpad();
 });
-/*
-[buttonSketchpad, buttonPixel].forEach(button => {
-    button.addEventListener('click', () => {
-        if(strokeSelection == 'pixel') {
-            removeListenersSketchpad();
-        } else if(strokeSelection == 'sketchpad') {
-            sketchpad();
-        };
-    });
-});
-*/
+
 function removeListenersPixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
@@ -117,6 +107,7 @@ function removeListenersSketchpad() {
     gridItems.forEach(item => {
         item.removeEventListener('mouseenter', sketchpad)
     })
+    console.log('hi')
 }
 
 makeGrid(16);
