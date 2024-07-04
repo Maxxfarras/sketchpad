@@ -96,19 +96,25 @@ buttonSketchpad.addEventListener('click', () => {
 [buttonSketchpad, buttonPixel].forEach(button => {
     button.addEventListener('click', () => {
         if(strokeSelection === 'pixel') {
-            removeListeners();
             pixel();
-        } else if (strokeSelection === 'sketchpad') {
-            removeListeners();
-            sketchpad()
+        } else if(strokeSelection === 'sketchpad') {
+            sketchpad();
         };
     });
 });
 
-function removeListeners () {
+function removeListenersPixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.removeEventListener('click')
+        item.removeEventListener('click', pixel)
+    })
+}
+
+function removeListenersSketchpad() {
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.removeEventListener('mouseenter', sketchpad)
+        console.log('hello')
     })
 }
 
