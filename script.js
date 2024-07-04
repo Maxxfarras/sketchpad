@@ -85,37 +85,47 @@ buttonClear.addEventListener('click', () =>{
 
 //pixel button
 buttonPixel.addEventListener('click', () => {
-    strokeSelection = 'pixel';
+    removeListenersSketchpad()
+    pixel();
 });
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
-    strokeSelection = 'sketchpad';
+    removeListenersPixel();
+    sketchpad();
 });
-
+/*
 [buttonSketchpad, buttonPixel].forEach(button => {
     button.addEventListener('click', () => {
-        if(strokeSelection === 'pixel') {
-            pixel();
-        } else if(strokeSelection === 'sketchpad') {
+        if(strokeSelection == 'pixel') {
+            removeListenersSketchpad();
+        } else if(strokeSelection == 'sketchpad') {
             sketchpad();
         };
     });
 });
-
+*/
 function removeListenersPixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.removeEventListener('click', pixel)
-    })
-}
+        item.removeEventListener('mouseenter', pixel)
+    });
+};
 
 function removeListenersSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.removeEventListener('mouseenter', sketchpad)
-        console.log('hello')
     })
 }
 
 makeGrid(16);
+
+
+/*
+strokeMode pseudocode
+
+1.Select the stroke mode (pixel or sketchpad)
+2.Add event listeners to each item
+
+*/
