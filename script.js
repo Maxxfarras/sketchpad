@@ -4,6 +4,7 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonRed = document.querySelector('#red');
+let buttonViolet = document.querySelector('#blue-violet')
 let mouseDown = false;
 let currentColor;
 
@@ -35,12 +36,12 @@ function makeGrid(sideLength) {
 
 function pixelStart(event) {
     mouseDown = true;
-    event.target.style.backgroundColor = 'blue';
+    event.target.style.backgroundColor = currentColor;
 };
 
 function pixelMove(event) {
     if(mouseDown) {
-        event.target.style.backgroundColor = 'blue';
+        event.target.style.backgroundColor = currentColor;
     };
 };
 
@@ -93,8 +94,8 @@ function clearGrid() {
 };
 
 switch(currentColor) {
-    case 'black':
-        document.style.backgroundColor = 'black';
+    case 'violet':
+        document.style.backgroundColor = 'blueViolet';
         break;
     case 'red':
         document.style.backgroundColor = 'red';
@@ -110,6 +111,9 @@ buttonRed.addEventListener('click', () => {
     currentColor = 'red';
 });
 
+buttonViolet.addEventListener('click', () => {
+    currentColor = 'violet';
+});
 //resize button
 buttonResize.addEventListener('click', () => {
     clearGrid();
@@ -126,12 +130,14 @@ buttonClear.addEventListener('click', () =>{
 
 //pixel button
 buttonPixel.addEventListener('click', () => {
+    currentColor = 'black';
     removeListenerSketchpad();
     addListenerPixel();
 });
 
 //sketchpad button
 buttonSketchpad.addEventListener('click', () => {
+    currentColor = 'black';
     removeListenerPixel();
     addListenerSketchpad();
 });
