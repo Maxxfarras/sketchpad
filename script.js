@@ -105,7 +105,8 @@ switch(currentColor) {
         break;
     default:
         currentColor = 'black';
-}
+};
+
 //test
 buttonRed.addEventListener('click', () => {
     currentColor = 'red';
