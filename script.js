@@ -3,7 +3,9 @@ let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
+let buttonRed = document.querySelector('#red');
 let mouseDown = false;
+let currentColor;
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -67,7 +69,7 @@ function removeListenerPixel() {
 };
 
 function sketchpad(event) {
-    event.target.style.backgroundColor = 'black';
+    event.target.style.backgroundColor = currentColor;
 };
 
 function addListenerSketchpad() {
@@ -89,6 +91,24 @@ function clearGrid() {
         container.removeChild(container.firstChild);
     };
 };
+
+switch(currentColor) {
+    case 'black':
+        document.style.backgroundColor = 'black';
+        break;
+    case 'red':
+        document.style.backgroundColor = 'red';
+        break;
+    case 'rainbow':
+        currentColor = 'rainbow';
+        break;
+    default:
+        currentColor = 'black';
+}
+//test
+buttonRed.addEventListener('click', () => {
+    currentColor = 'red';
+});
 
 //resize button
 buttonResize.addEventListener('click', () => {
