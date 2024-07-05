@@ -4,7 +4,7 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonRed = document.querySelector('#red');
-let buttonViolet = document.querySelector('#blue-violet')
+let buttonEraser = document.querySelector('#eraser')
 let mouseDown = false;
 let currentColor;
 
@@ -94,8 +94,8 @@ function clearGrid() {
 };
 
 switch(currentColor) {
-    case 'violet':
-        document.style.backgroundColor = 'blueViolet';
+    case 'eraser':
+        document.style.backgroundColor = 'white';
         break;
     case 'red':
         document.style.backgroundColor = 'red';
@@ -111,9 +111,14 @@ buttonRed.addEventListener('click', () => {
     currentColor = 'red';
 });
 
-buttonViolet.addEventListener('click', () => {
-    currentColor = 'violet';
+//eraser button
+buttonEraser.addEventListener('click', () => {
+    currentColor = 'white';
+    removeListenerSketchpad();
+    removeListenerPixel();
+    addListenerPixel();
 });
+
 //resize button
 buttonResize.addEventListener('click', () => {
     clearGrid();
