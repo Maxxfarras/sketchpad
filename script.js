@@ -6,6 +6,7 @@ let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonRed = document.querySelector('#red');
 let buttonEraser = document.querySelector('#eraser')
 let mouseDown = false;
+let mouseClick = false;
 let currentColor;
 
 function chooseSize() {
@@ -40,7 +41,7 @@ function pixelStart(event) {
 };
 
 function pixelMove(event) {
-    if(mouseDown) {
+    if (mouseDown) {
         event.target.style.backgroundColor = currentColor;
     };
 };
@@ -69,21 +70,40 @@ function removeListenerPixel() {
     document.removeEventListener('mouseup', pixelEnd);
 };
 
-function sketchpad(event) {
+function sketchpadStart(event) {
+    mouseClick = true;
     event.target.style.backgroundColor = currentColor;
 };
+
+function sketchpadMove(event) {
+    if (mouseClick = true) {
+    event.target.style.backgroundColor = currentColor;
+    };
+}
+
+function sketchpadEnd() {
+    mouseClick = false;
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+        item.removeEventListener('mouseenter', sketchpadMove);
+    });
+}
 
 function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.addEventListener('mouseenter', sketchpad);
+        item.addEventListener('click', sketchpadStart);
+        item.addEventListener('mouseenter', sketchpadMove);
+        item.addEventListener('dblclick', sketchpadEnd);
     });
 };
 
 function removeListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
-        item.removeEventListener('mouseenter', sketchpad);
+        item.removeEventListener('click', sketchpadStart);
+        item.removeEventListener('mouseenter', sketchpadMove);
+        item.removeEventListener('dblclick', sketchpadEnd);
     });
 };
 
