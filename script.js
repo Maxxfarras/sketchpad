@@ -95,10 +95,10 @@ function clearGrid() {
 
 switch(currentColor) {
     case 'eraser':
-        document.style.backgroundColor = 'white';
+        currentColor= 'white';
         break;
     case 'red':
-        document.style.backgroundColor = 'red';
+        currentColor = 'red';
         break;
     case 'rainbow':
         currentColor = 'rainbow';
