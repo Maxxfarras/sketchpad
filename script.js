@@ -95,7 +95,10 @@ function addListenerSketchpad() {
     gridItems.forEach(item => {
         item.addEventListener('click', sketchpadStart);
         item.addEventListener('mouseenter', sketchpadMove);
-        item.addEventListener('dblclick', sketchpadEnd);
+        if (mouseClick == true) {
+            item.removeEventListener('click', sketchpadEnd); 
+        }
+        //item.addEventListener('click', sketchpadEnd);
     });
 };
 
@@ -104,7 +107,10 @@ function removeListenerSketchpad() {
     gridItems.forEach(item => {
         item.removeEventListener('click', sketchpadStart);
         item.removeEventListener('mouseenter', sketchpadMove);
-        item.removeEventListener('dblclick', sketchpadEnd);
+        if (mouseClick == true) {
+            item.removeEventListener('click', sketchpadEnd); 
+        }
+        //item.removeEventListener('click', sketchpadEnd);
     });
 };
 
