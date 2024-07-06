@@ -73,21 +73,22 @@ function removeListenerPixel() {
 function sketchpadStart(event) {
     mouseClick = true;
     event.target.style.backgroundColor = currentColor;
+    console.log('start')
 };
 
 function sketchpadMove(event) {
-    if (mouseClick = true) {
+    if (mouseClick) {
     event.target.style.backgroundColor = currentColor;
+    console.log('move')
     };
 }
 
-function sketchpadEnd() {
+function sketchpadEnd(event) {
     mouseClick = false;
-    let gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-        item.removeEventListener('mouseenter', sketchpadMove);
-    });
-}
+    event.removeEventListener('mouseenter', sketchpadMove);
+    console.log('end')
+};
+
 
 function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
