@@ -4,7 +4,8 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonRed = document.querySelector('#red');
-let buttonEraser = document.querySelector('#eraser')
+let buttonEraser = document.querySelector('#eraser');
+let buttonRainbow = document.querySelector('#rainbow');
 let mouseDown = false;
 let mouseClick = false;
 let currentColor;
