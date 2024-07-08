@@ -116,27 +116,21 @@ function randomColor() {
     let violet = 'rgb(148, 0, 211)'
 }
 
-switch(currentColor) {
-    case 'eraser':
-        currentColor = 'white';
-        break;
-    case 'red':
-        currentColor = 'rgb(148, 0, 211)';
-        break;
-    case 'rainbow':
-        currentColor = 'rainbow';
-        break;
-    default:
-        currentColor = 'black';
-};
-
-//test
-buttonRed.addEventListener('click', () => {
-    currentColor = 'red';
-});
-
 buttonsColor.forEach(button => {
     let chosenColor = button.getAttribute('data-color');
+    button.addEventListener('click', () => {
+        switch(chosenColor) {
+            case 'red':
+                currentColor = 'red';
+                break;
+            case 'rainbow':
+                currentColor = 'blue';
+                break;
+            default:
+                currentColor = 'black'
+        }
+        console.log('add event listener')
+    })
 })
 
 //eraser button
