@@ -3,9 +3,10 @@ let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
-let buttonRed = document.querySelector('#red');
+//let buttonRed = document.querySelector('#red');
+//let buttonRainbow = document.querySelector('#rainbow');
 let buttonEraser = document.querySelector('#eraser');
-let buttonRainbow = document.querySelector('#rainbow');
+let colorButtons = document.querySelectorAll('.color-button')
 let mouseDown = false;
 let mouseClick = false;
 let currentColor;
