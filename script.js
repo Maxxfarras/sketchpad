@@ -113,7 +113,13 @@ function clearGrid() {
 };
 
 function randomColor() {
-    let violet = 'rgb(148, 0, 211)'
+    let violet = 'rgb(148, 0, 211)';
+    let indigo = 'rgb(75, 0, 130)';
+    let blue = 'rgb(0, 0, 255)';
+    let green = 'rgb(0, 255, 0)';
+    let yellow = 'rgb(255, 255, 0)';
+    let orange = 'rgb(255, 127, 0)';
+    let red = 'rgb(255, 0, 0)';
 }
 
 buttonsColor.forEach(button => {
