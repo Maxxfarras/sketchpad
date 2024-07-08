@@ -7,7 +7,8 @@ let buttonRed = document.querySelector('#red');
 let buttonEraser = document.querySelector('#eraser')
 let mouseDown = false;
 let mouseClick = false;
-let currentColor;
+let currentColor = 'black';
+
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
@@ -85,7 +86,6 @@ function sketchpadEnd() {
     mouseClick = false;
 };
 
-
 function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
@@ -115,11 +115,11 @@ function randomColor() {
 }
 
 switch(currentColor) {
-    case 'eraser':
+    case 'white':
         currentColor = 'white';
         break;
     case 'red':
-        currentColor = 'rgb(148, 0, 211)';
+        currentColor = 'red';
         break;
     case 'rainbow':
         currentColor = 'rainbow';
