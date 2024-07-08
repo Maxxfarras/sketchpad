@@ -73,20 +73,17 @@ function removeListenerPixel() {
 function sketchpadStart(event) {
     mouseClick = true;
     event.target.style.backgroundColor = currentColor;
-    console.log('start')
 };
 
 function sketchpadMove(event) {
     if (mouseClick) {
     event.target.style.backgroundColor = currentColor;
-    console.log('move')
     };
 }
 
 function sketchpadEnd(event) {
     mouseClick = false;
     event.removeEventListener('mouseenter', sketchpadMove);
-    console.log('end')
 };
 
 
