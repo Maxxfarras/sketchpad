@@ -126,10 +126,9 @@ buttonsColor.forEach(button => {
             case 'rainbow':
                 currentColor = 'blue';
                 break;
-            default:
-                currentColor = 'black'
+            case 'black':
+                currentColor = 'black';
         }
-        console.log('add event listener')
     })
 })
 
