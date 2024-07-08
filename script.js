@@ -135,7 +135,9 @@ buttonRed.addEventListener('click', () => {
     currentColor = 'red';
 });
 
-
+buttonsColor.forEach(button => {
+    let chosenColor = button.getAttribute('data-color');
+})
 
 //eraser button
 buttonEraser.addEventListener('click', () => {
