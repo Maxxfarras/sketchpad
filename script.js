@@ -3,8 +3,6 @@ let buttonResize = document.querySelector('#resize');
 let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
-//let buttonRed = document.querySelector('#red');
-//let buttonRainbow = document.querySelector('#rainbow');
 let buttonEraser = document.querySelector('#eraser');
 let buttonsColor = document.querySelectorAll('.color-button')
 let mouseDown = false;
@@ -122,7 +120,9 @@ function randomColor() {
         'rgb(255, 127, 0)',
         'rgb(255, 0, 0)'
     ];
-    
+    for(i = 0; i <= 7; i++) {
+        
+    }
     return rainbowColors[0];
 }
 
