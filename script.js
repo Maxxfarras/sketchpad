@@ -81,9 +81,8 @@ function sketchpadMove(event) {
     };
 }
 
-function sketchpadEnd(event) {
+function sketchpadEnd() {
     mouseClick = false;
-    event.removeEventListener('mouseenter', sketchpadMove);
 };
 
 
@@ -112,15 +111,15 @@ function clearGrid() {
 };
 
 function randomColor() {
-
+    let violet = 'rgb(148, 0, 211)'
 }
 
 switch(currentColor) {
     case 'eraser':
-        currentColor= 'white';
+        currentColor = 'white';
         break;
     case 'red':
-        currentColor = 'red';
+        currentColor = 'rgb(148, 0, 211)';
         break;
     case 'rainbow':
         currentColor = 'rainbow';
