@@ -113,13 +113,17 @@ function clearGrid() {
 };
 
 function randomColor() {
-    let violet = 'rgb(148, 0, 211)';
-    let indigo = 'rgb(75, 0, 130)';
-    let blue = 'rgb(0, 0, 255)';
-    let green = 'rgb(0, 255, 0)';
-    let yellow = 'rgb(255, 255, 0)';
-    let orange = 'rgb(255, 127, 0)';
-    let red = 'rgb(255, 0, 0)';
+    const rainbowColors = [
+        'rgb(148, 0, 211)',
+        'rgb(75, 0, 130)',
+        'rgb(0, 0, 255)',
+        'rgb(0, 255, 0)',
+        'rgb(255, 255, 0)',
+        'rgb(255, 127, 0)',
+        'rgb(255, 0, 0)'
+    ];
+    
+    return rainbowColors[0];
 }
 
 buttonsColor.forEach(button => {
@@ -130,7 +134,7 @@ buttonsColor.forEach(button => {
                 currentColor = 'red';
                 break;
             case 'rainbow':
-                currentColor = 'blue';
+                currentColor = randomColor();
                 break;
             case 'black':
                 currentColor = 'black';
