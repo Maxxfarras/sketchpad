@@ -111,6 +111,10 @@ function clearGrid() {
     };
 };
 
+function randomColor() {
+
+}
+
 switch(currentColor) {
     case 'eraser':
         currentColor= 'white';
