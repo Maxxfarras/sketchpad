@@ -13,7 +13,7 @@ let currentColor;
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
-    if ((sideLength > 100) || (sideLength <= 0)) {
+    if ((sideLength > 100) || (sideLength <= 1)) {
         alert('Invalid Value, try again');
         chooseSize();
     } else {
@@ -193,14 +193,13 @@ buttonSketchpad.addEventListener('click', () => {
 
 buttonsAll.forEach(item => {
     item.addEventListener('mouseenter', (event) => {
-        const message = event.target.getAttribute('data-message');
+        let message = event.target.getAttribute('data-message');
         popup.textContent = message;
         popup.style.display = 'block';
     });
 
     item.addEventListener('mouseleave', () => {
         popup.style.display = 'none';
-        console.log('out');
     });
 });
 
