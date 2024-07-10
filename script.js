@@ -7,6 +7,7 @@ let buttonEraser = document.querySelector('#eraser');
 let buttonsColor = document.querySelectorAll('.color-button')
 let mouseDown = false;
 let mouseClick = false;
+let mouseHover = false;
 let currentColor;
 
 function chooseSize() {
@@ -28,7 +29,7 @@ function makeGrid(sideLength) {
         div.style.cssText = `
         width: ${side}px;
         height: ${side}px;
-        border: 1px solid black;
+        border: 1px solid rgb(200, 200, 200);
         box-sizing: border-box;
         `;
         container.appendChild(div);   
