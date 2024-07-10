@@ -5,11 +5,10 @@ let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonEraser = document.querySelector('#eraser');
 let buttonsColor = document.querySelectorAll('.color-button');
-let buttonsAll = document.querySelectorAll('.button');
+let buttonsAll = document.querySelectorAll('button');
 let popup = document.querySelector('#popup');
 let mouseDown = false;
 let mouseClick = false;
-let mouseHover = false;
 let currentColor;
 
 function chooseSize() {
@@ -83,7 +82,7 @@ function removeListenerPixel() {
 
 function sketchpadStart(event) {
     mouseClick = true;
-        event.target.style.backgroundColor = currentColor;
+    event.target.style.backgroundColor = currentColor;
 };
 
 function sketchpadMove(event) {
@@ -99,7 +98,6 @@ function sketchpadMove(event) {
 function sketchpadEnd() {
     mouseClick = false;
 };
-
 
 function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
@@ -194,13 +192,15 @@ buttonSketchpad.addEventListener('click', () => {
 //popup for sketchpad
 
 buttonsAll.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        console.log('in');
+    item.addEventListener('mouseenter', (event) => {
+        const message = event.target.getAttribute('data-message');
+        popup.textContent = message;
         popup.style.display = 'block';
     });
+
     item.addEventListener('mouseleave', () => {
-        console.log('out');
         popup.style.display = 'none';
+        console.log('out');
     });
 });
 
