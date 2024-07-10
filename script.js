@@ -188,4 +188,6 @@ buttonSketchpad.addEventListener('click', () => {
     addListenerSketchpad();
 });
 
+//popup for sketchpad
+
 makeGrid(16);
