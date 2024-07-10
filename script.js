@@ -37,12 +37,20 @@ function makeGrid(sideLength) {
 
 function pixelStart(event) {
     mouseDown = true;
-    event.target.style.backgroundColor = currentColor;
+    if (currentColor === 'rainbow') {
+        event.target.style.backgroundColor = randomColor();
+    } else {
+        event.target.style.backgroundColor = currentColor;
+    };
 };
 
 function pixelMove(event) {
     if (mouseDown) {
-        event.target.style.backgroundColor = currentColor;
+        if (currentColor === 'rainbow') {
+            event.target.style.backgroundColor = randomColor();
+        } else {
+            event.target.style.backgroundColor = currentColor;
+        };
     };
 };
 
@@ -54,7 +62,7 @@ function addListenerPixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.addEventListener('mousedown', pixelStart);
-        item.addEventListener('mousemove', pixelMove);
+        item.addEventListener('mouseenter', pixelMove);
         item.addEventListener('mouseup', pixelEnd);
     });
     document.addEventListener('mouseup', pixelEnd);
@@ -64,7 +72,7 @@ function removeListenerPixel() {
     let gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.removeEventListener('mousedown', pixelStart);
-        item.removeEventListener('mousemove', pixelMove);
+        item.removeEventListener('mouseenter', pixelMove);
         item.removeEventListener('mouseup', pixelEnd);
     });
     document.removeEventListener('mouseup', pixelEnd);
@@ -81,9 +89,9 @@ function sketchpadMove(event) {
             event.target.style.backgroundColor = randomColor();
         } else {
             event.target.style.backgroundColor = currentColor;
-        }
+        };
     };
-}
+};
 
 function sketchpadEnd() {
     mouseClick = false;
