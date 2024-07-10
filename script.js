@@ -120,10 +120,8 @@ function randomColor() {
         'rgb(255, 127, 0)',
         'rgb(255, 0, 0)'
     ];
-    for(i = 0; i <= 7; i++) {
-        
-    }
-    return rainbowColors[0];
+    let randomNumber = Math.floor(Math.random() * 7);
+    return rainbowColors[randomNumber];
 }
 
 buttonsColor.forEach(button => {
