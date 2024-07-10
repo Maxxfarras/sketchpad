@@ -37,6 +37,12 @@ function makeGrid(sideLength) {
     };
 };
 
+function clearGrid() {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+};
+
 function pixelStart(event) {
     mouseDown = true;
     if (currentColor === 'rainbow') {
@@ -117,12 +123,7 @@ function removeListenerSketchpad() {
     });
 };
 
-function clearGrid() {
-    while(container.firstChild) {
-        container.removeChild(container.firstChild);
-    };
-};
-
+//for rainbow color
 function randomColor() {
     const rainbowColors = [
         'rgb(148, 0, 211)',
@@ -137,6 +138,7 @@ function randomColor() {
     return rainbowColors[randomNumber];
 }
 
+//button colors event listeners
 buttonsColor.forEach(button => {
     let chosenColor = button.getAttribute('data-color');
     button.addEventListener('click', () => {
@@ -189,15 +191,13 @@ buttonSketchpad.addEventListener('click', () => {
     addListenerSketchpad();
 });
 
-//popup for sketchpad
-
+//popup event listener
 buttonsAll.forEach(item => {
     item.addEventListener('mouseenter', (event) => {
         let message = event.target.getAttribute('data-message');
         popup.textContent = message;
         popup.style.display = 'block';
     });
-
     item.addEventListener('mouseleave', () => {
         popup.style.display = 'none';
     });
