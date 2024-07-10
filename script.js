@@ -72,12 +72,16 @@ function removeListenerPixel() {
 
 function sketchpadStart(event) {
     mouseClick = true;
-    event.target.style.backgroundColor = currentColor;
+        event.target.style.backgroundColor = currentColor;
 };
 
 function sketchpadMove(event) {
     if (mouseClick) {
-    event.target.style.backgroundColor = currentColor;
+        if (currentColor === 'rainbow') {
+            event.target.style.backgroundColor = randomColor();
+        } else {
+            event.target.style.backgroundColor = currentColor;
+        }
     };
 }
 
@@ -132,7 +136,7 @@ buttonsColor.forEach(button => {
                 currentColor = 'red';
                 break;
             case 'rainbow':
-                currentColor = randomColor();
+                currentColor = 'rainbow';
                 break;
             case 'black':
                 currentColor = 'black';
