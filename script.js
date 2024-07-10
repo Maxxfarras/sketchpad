@@ -4,14 +4,16 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonEraser = document.querySelector('#eraser');
-let buttonsColor = document.querySelectorAll('.color-button')
+let buttonsColor = document.querySelectorAll('.color-button');
+let buttonsAll = document.querySelectorAll('button');
+let popup = document.querySelector('#popup');
 let mouseDown = false;
 let mouseClick = false;
 let currentColor;
 
 function chooseSize() {
     let sideLength = prompt('Choose your side length, no more than 100');
-    if ((sideLength > 100) || (sideLength <= 0)) {
+    if ((sideLength > 100) || (sideLength <= 1)) {
         alert('Invalid Value, try again');
         chooseSize();
     } else {
@@ -28,10 +30,16 @@ function makeGrid(sideLength) {
         div.style.cssText = `
         width: ${side}px;
         height: ${side}px;
-        border: 1px solid black;
+        border: 1px solid rgb(200, 200, 200);
         box-sizing: border-box;
         `;
         container.appendChild(div);   
+    };
+};
+
+function clearGrid() {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
     };
 };
 
@@ -80,7 +88,7 @@ function removeListenerPixel() {
 
 function sketchpadStart(event) {
     mouseClick = true;
-        event.target.style.backgroundColor = currentColor;
+    event.target.style.backgroundColor = currentColor;
 };
 
 function sketchpadMove(event) {
@@ -96,7 +104,6 @@ function sketchpadMove(event) {
 function sketchpadEnd() {
     mouseClick = false;
 };
-
 
 function addListenerSketchpad() {
     let gridItems = document.querySelectorAll('.grid-item');
@@ -116,12 +123,6 @@ function removeListenerSketchpad() {
     });
 };
 
-function clearGrid() {
-    while(container.firstChild) {
-        container.removeChild(container.firstChild);
-    };
-};
-
 //for rainbow color
 function randomColor() {
     const rainbowColors = [
@@ -137,7 +138,7 @@ function randomColor() {
     return rainbowColors[randomNumber];
 }
 
-//color selection
+//button colors event listeners
 buttonsColor.forEach(button => {
     let chosenColor = button.getAttribute('data-color');
     button.addEventListener('click', () => {
@@ -188,6 +189,18 @@ buttonSketchpad.addEventListener('click', () => {
     currentColor = 'black';
     removeListenerPixel();
     addListenerSketchpad();
+});
+
+//popup event listener
+buttonsAll.forEach(item => {
+    item.addEventListener('mouseenter', (event) => {
+        let message = event.target.getAttribute('data-message');
+        popup.textContent = message;
+        popup.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', () => {
+        popup.style.display = 'none';
+    });
 });
 
 makeGrid(16);
