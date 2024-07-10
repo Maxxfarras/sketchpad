@@ -122,6 +122,7 @@ function clearGrid() {
     };
 };
 
+//for rainbow color
 function randomColor() {
     const rainbowColors = [
         'rgb(148, 0, 211)',
@@ -136,6 +137,7 @@ function randomColor() {
     return rainbowColors[randomNumber];
 }
 
+//color selection
 buttonsColor.forEach(button => {
     let chosenColor = button.getAttribute('data-color');
     button.addEventListener('click', () => {
