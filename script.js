@@ -4,7 +4,9 @@ let buttonClear = document.querySelector('#clear');
 let buttonPixel = document.querySelector('#pixel');
 let buttonSketchpad = document.querySelector('#sketchpad');
 let buttonEraser = document.querySelector('#eraser');
-let buttonsColor = document.querySelectorAll('.color-button')
+let buttonsColor = document.querySelectorAll('.color-button');
+let buttonsAll = document.querySelectorAll('.button');
+let popup = document.querySelector('#popup');
 let mouseDown = false;
 let mouseClick = false;
 let mouseHover = false;
@@ -190,5 +192,16 @@ buttonSketchpad.addEventListener('click', () => {
 });
 
 //popup for sketchpad
+
+buttonsAll.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        console.log('in');
+        popup.style.display = 'block';
+    });
+    item.addEventListener('mouseleave', () => {
+        console.log('out');
+        popup.style.display = 'none';
+    });
+});
 
 makeGrid(16);
