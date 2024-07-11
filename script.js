@@ -32,6 +32,7 @@ function makeGrid(sideLength) {
         height: ${side}px;
         border: 1px solid rgb(200, 200, 200);
         box-sizing: border-box;
+        background-color: white;
         `;
         container.appendChild(div);   
     };

@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: #c6e2e9;
 }
 
 #container {
@@ -12,12 +13,19 @@ border: 3px solid rgb(0, 0, 0);
 
 #popup {
     display: none;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
     background-color: rgb(194, 194, 194);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
 }
 
 #header {
     display: flex;
     justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 45px;
 }
 
 .content-container {
@@ -40,4 +48,12 @@ border: 3px solid rgb(0, 0, 0);
 
 .upper {
     margin-right: 45px;
+}
+
+button {
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
 }
