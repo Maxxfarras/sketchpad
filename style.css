@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    padding: 0;
 }
 
 #container {
@@ -24,4 +23,21 @@ border: 3px solid rgb(0, 0, 0);
 .content-container {
     display: flex;
     justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px; 
+    gap: 40px;
+}
+
+.left,
+.right {
+    flex-direction: column;
+}
+
+.upper {
+    margin-right: 45px;
 }
