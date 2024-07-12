@@ -38,6 +38,7 @@ function makeGrid(sideLength) {
     };
 };
 
+//delete all cells
 function clearGrid() {
     while(container.firstChild) {
         container.removeChild(container.firstChild);
