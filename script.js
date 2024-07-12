@@ -23,7 +23,7 @@ function chooseSize() {
 
 function makeGrid(sideLength) {
     let totalSquares = sideLength * sideLength;
-    let side = 760/sideLength;
+    let side = 600/sideLength;
     for(i = 1; i <= totalSquares; i++) {
         let div = document.createElement('div');
         div.classList.toggle('grid-item');
@@ -32,6 +32,7 @@ function makeGrid(sideLength) {
         height: ${side}px;
         border: 1px solid rgb(200, 200, 200);
         box-sizing: border-box;
+        background-color: white;
         `;
         container.appendChild(div);   
     };
@@ -136,7 +137,7 @@ function randomColor() {
     ];
     let randomNumber = Math.floor(Math.random() * 7);
     return rainbowColors[randomNumber];
-}
+};
 
 //button colors event listeners
 buttonsColor.forEach(button => {
@@ -151,9 +152,9 @@ buttonsColor.forEach(button => {
                 break;
             case 'black':
                 currentColor = 'black';
-        }
-    })
-})
+        };
+    });
+});
 
 //eraser button
 buttonEraser.addEventListener('click', () => {
