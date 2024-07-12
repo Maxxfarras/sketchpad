@@ -137,13 +137,12 @@ function randomColor() {
     ];
     let randomNumber = Math.floor(Math.random() * 7);
     return rainbowColors[randomNumber];
-}
+};
 
 //button colors event listeners
 buttonsColor.forEach(button => {
     let chosenColor = button.getAttribute('data-color');
     button.addEventListener('click', () => {
-        button.style.backgroundColor = 'red';
         switch(chosenColor) {
             case 'red':
                 currentColor = 'red';
@@ -153,11 +152,9 @@ buttonsColor.forEach(button => {
                 break;
             case 'black':
                 currentColor = 'black';
-        }
-    })
-})
-
-//let selectedButton = button.style.backgroundColor = 'rgb(194, 194, 194)'
+        };
+    });
+});
 
 //eraser button
 buttonEraser.addEventListener('click', () => {
